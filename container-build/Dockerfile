@@ -7,8 +7,8 @@ LABEL io.openshift.expose-services="8080:http" \
       io.openshift.tags="httpd, apache"
 RUN sed -i 's/Listen 80/Listen 8080/g' /etc/httpd/conf/httpd.conf
 
-RUN chown -R 0 /var/run/httpd /var/log/httpd && \
-    chgrp -R g=u /var/run/httpd /var/log/httpd
+RUN chgrp -R 0 /var/run/httpd /var/log/httpd && \
+    chown -R g=u /var/run/httpd /var/log/httpd
 
 USER 1001
 
