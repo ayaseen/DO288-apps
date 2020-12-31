@@ -4,7 +4,7 @@ EXPOSE 8080
 LABEL io.openshift.expose-services="8080:http" \
       io.k8s.description="apache child image" \
       io.k8s.display-name="httpd" \
-      io.openshift.tags= "httpd, apache"
+      io.openshift.tags="httpd, apache"
 RUN sed -i 's/Listen 80/Listen 8080/g' /etc/httpd/conf/httpd.conf
 
 RUN chown -R 0 /var/run/httpd /var/log/httpd && \
